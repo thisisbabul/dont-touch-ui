@@ -1,0 +1,93 @@
+<section id="home-banner">
+  <div class="overlay"></div>
+  <video preload autoplay loop id="myVideo" oncanplay="this.muted=true">
+    <source src="../../assets/video/banner.mp4" type="video/mp4">
+  </video>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12 logo text-center col-sm-12 col-xs-12">
+        <a [routerLink]="['/']"><img src="../../assets/images/logo.png" alt="" /></a>
+      </div>
+      <div class="col-lg-12 links text-center col-sm-12 col-xs-12">
+        <ul>
+          <app-header></app-header>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="info-somo">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5 col-lg-offset-2 small-text-center col-sm-9 col-xs-12">
+        <h3>QUEM SOMOS</h3>
+        <p>Nosso estúdio é um espaço rico de revelações artísticas que te ajudará na criação de você mesmo. É o lugar com a sensibilidade exata exigida pelo ato inseparável que é a tatuagem.
+          Aqui artistas, clientes e tinta se misturam até se confundirem entre si - tudo para que a beleza e a audácia da arte sejam exploradas da forma mais inusitada, verdadeira e infinita.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="info-imgs">
+  <div class="container">
+    <div class="row">
+      <ul class="artists">
+        <li *ngFor="let tattooArtist of allData?.data">
+          <ng-container *ngIf="tattooArtist.tattooArtist.data.id != '342'">
+            <div class="col-lg-3 flush col-sm-3 col-xs-12">
+              <div class="col-lg-12 position flush col-sm-12 col-xs-12">
+                <img class="fullwidth" src="{{tattooArtist.tattooArtist.data.image}}" alt="" />
+                <div class="col-lg-12 text-center align flush col-sm-12 col-xs-12">
+                  <h3>{{tattooArtist.tattooArtist.data.name}}<br/>
+                    <span>@{{tattooArtist.tattooArtist.data.instragram.substring(tattooArtist.tattooArtist.data.instragram.indexOf(".com/") + 5, tattooArtist.tattooArtist.data.instragram.lastIndexOf("/") > 25 ? tattooArtist.tattooArtist.data.instragram.lastIndexOf("/") : tattooArtist.tattooArtist.data.instragram.length)}}</span></h3>
+                </div>
+              </div>
+              <div class="col-lg-12 text-center flush col-sm-12 col-xs-12">
+                <a class="link" [routerLink]="['/', tattooArtist.tattooArtist.data.slug]">Veja Mais</a>
+              </div>
+            </div>
+          </ng-container>
+        </li>
+      </ul>
+      <div class="row">
+        <div class="col-lg-12 text-center col-sm-12 col-xs-12">
+          <a class="link-btn" href="#">VER TODOS OS ARTISTAS </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="info-contact">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9 column-centered flush col-sm-11 col-xs-12">
+        <div class="col-lg-12 text-center col-sm-12 col-xs-12">
+          <h2>ORçAMENTO</h2>
+          <p>Deixe os seus dados que nossos especialistas entram em contato com você.</p>
+        </div>
+        <form>
+          <div class="col-lg-12 col-sm-12 col-xs-12">
+            <input type="text" placeholder="Nome" />
+            <input type="text" placeholder="Celular" />
+            <input type="text" placeholder="Email" />
+          </div>
+          <div class="col-lg-12 text-center col-sm-12 col-xs-12">
+            <input class="submit" type="submit" value="ENVIAR" />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<section #mapContainer id="info-map">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12 text-center col-sm-12 col-xs-12">
+        <h2>Já viu NOSSO BLOG</h2>
+        <a class="link-btn" href="#">VISITAR</a>
+      </div>
+      <div class="col-lg-12 flush text-center col-sm-12 col-xs-12" id="map">
+      </div>
+    </div>
+  </div>
+</section>

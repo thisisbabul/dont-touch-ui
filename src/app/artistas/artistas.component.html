@@ -1,0 +1,54 @@
+<section id="header">
+  <div class="container">
+    <div class="row">
+      <nav class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div id="logo" class="navbar-brand">
+            <a [routerLink]="['/']"><img src="../../assets/images/logo-round.png" alt="" /></a>
+          </div>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a [routerLink]="['/']">Home</a></li>
+            <li><a class="active" [routerLink]="['/artistas']">ARTISTAS</a></li>
+            <li><a [routerLink]="['/', 'felipe-cardim']">Piercing</a></li>
+            <li><a [routerLink]="['/unidades']">UNIDADES</a></li>
+            <li><a [routerLink]="['/faca-parte']">FAÇA PARTE</a></li>
+            <li><a href="https://blog.donttouch.com.br" target="_blank">Blog</a></li>
+            <li><a href="https://shop.donttouch.com.br" target="_blank">Shop</a></li>
+            <li><a [routerLink]="['/contato']">CONTATO</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </nav>
+    </div>
+  </div>
+</section>
+<section id="info-imgs" class="artist">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center col-sm-12 col-xs-12">
+        <h2>NOSSOS ARTISTAS</h2>
+      </div>
+      <div class="col-lg-3 flush col-sm-3 col-xs-12" *ngFor="let tattooArtist of allData?.data">
+        <ng-container *ngIf="tattooArtist.tattooArtist.data.id != '342'">
+          <div class="col-lg-12 position flush col-sm-12 col-xs-12">
+            <img class="fullwidth" src="{{tattooArtist.tattooArtist.data.image}}" alt="" />
+            <div class="col-lg-12 text-center align flush col-sm-12 col-xs-12">
+              <h3>{{tattooArtist.tattooArtist.data.name}}<br/>
+                <span>@{{tattooArtist.tattooArtist.data.instragram.substring(tattooArtist.tattooArtist.data.instragram.indexOf(".com/") + 5, tattooArtist.tattooArtist.data.instragram.lastIndexOf("/") > 25 ? tattooArtist.tattooArtist.data.instragram.lastIndexOf("/") : tattooArtist.tattooArtist.data.instragram.length)}}</span></h3>
+            </div>
+          </div>
+          <div class="col-lg-12 text-center flush col-sm-12 col-xs-12">
+            <a class="link" [routerLink]="['/', tattooArtist.tattooArtist.data.slug]">Veja Mais</a>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,39 @@
+<section id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 small-text-center col-sm-3 col-xs-12">
+        <h3>Endereço</h3>
+        <p>Av. Divino Salvador, 548 <br/> Planalto Paulista<br>São Paulo - SP<br>04078-012</p>
+
+      </div>
+      <div class="col-lg-3 small-text-center col-sm-3 col-xs-12">
+        <h3>Horário</h3>
+        <p>Segunda a Sábado<br>10am to 8pm</p>
+        <a class="link" href="#">Make An Appointment</a>
+      </div>
+      <div class="col-lg-3 small-text-center col-sm-3 col-xs-12">
+        <h3>Contato</h3>
+        <ul id="footer_tel">
+          <ng-container *ngFor="let salesReprepresentative of allSalesRepresentative?.data">
+            <li><a href="https://api.whatsapp.com/send?phone=55{{salesReprepresentative.cellphone
+            .toString().split(' ').join('')
+            .toString().split('(').join('')
+            .toString().split(')').join('')
+            .toString().split('-').join('')}}">
+              {{salesReprepresentative.cellphone.toString().split(' ').join('')}}</a></li>
+          </ng-container>
+          <li><a href="mailto:social@donttouch.com.br">social@donttouch.com.br</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 social small-text-center col-sm-3 col-xs-12">
+        <h3>Siga me os bons</h3>
+        <ul>
+          <li><a href="https://www.instagram.com/studiodonttouch/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+          <li><a href="https://www.facebook.com/studiodonttouch/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="social@donttouch.com.br"><i class="fa fa-envelope"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<a class="what" href="https://api.whatsapp.com/send?phone=55{{allSalesRepresentative?.data[0].cellphone.toString().split(' ').join('').toString().split('(').join('').toString().split(')').join('').toString().split('-').join('')}}" target="_blank"><img src="../../assets/images/img-whatsapp.png" alt="" /></a>
